@@ -30,9 +30,9 @@ namespace BlackOPS.Service
             return promoLaunchRepository.GetPricePlanInfo(prefix);
         }
 
-        public List<AcitvePromoInfo> GetActivePromoInfo(string productCode, string schemeName, int pricePlanId)
+        public List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo)
         {
-            return promoLaunchRepository.GetActivePromoInfo(productCode, schemeName, pricePlanId);
+            return promoLaunchRepository.GetActivePromoInfo(searchPromo);
         }
     }
 }

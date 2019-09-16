@@ -36,10 +36,10 @@ namespace BlackOPS.Controllers
         }
 
         [HttpPost("GetProducts")]
-        public ActionResult GetProductCodeInfo(string prefix)
+        public ActionResult GetProductCodeInfo([FromBody] ProductSearch prefix)
         {
             promoLaunchService = new PromoLaunchService(this.settings);
-            return Json(promoLaunchService.GetProductCodeInfo(prefix));
+            return Json(promoLaunchService.GetProductCodeInfo(prefix.Prefix));
         }
 
         [HttpPost("GetPricePlanInfo")]
@@ -50,10 +50,10 @@ namespace BlackOPS.Controllers
         }
 
         [HttpPost("GetActivePromo")]
-        public ActionResult GetActivePromoInfo(string productCode, string schemename, int priceplanid)
+        public ActionResult GetActivePromoInfo(SearchPromo searchPromo)
         {
             promoLaunchService = new PromoLaunchService(this.settings);
-            return Json(promoLaunchService.GetActivePromoInfo(productCode, schemename, priceplanid));
+            return Json(promoLaunchService.GetActivePromoInfo(searchPromo));
         }
     }
 

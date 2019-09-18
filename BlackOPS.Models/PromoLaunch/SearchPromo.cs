@@ -10,6 +10,6 @@ namespace BlackOPS.Models.PromoLaunch
 
         public string PriceScheme { get; set; }
 
-        public int PlanId { get; set; }
+        public int PricePlanId { get; set; }
     }
 }

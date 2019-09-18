@@ -49,17 +49,17 @@ namespace BlackOPS.Repository
         {
             List<ProductCodeList> productCodes = new List<ProductCodeList>();
             prefix = prefix ?? string.Empty;
-            //productCodes.Add(new ProductCodeList
-            //{
-            //    ProductCode = "3234234",
-            //    ProductDescription = "asdfadf"
-            //});
-            //productCodes.Add(new ProductCodeList
-            //{
-            //    ProductCode = "4564564",
-            //    ProductDescription = "ar"
-            //});
-            //return productCodes;
+            productCodes.Add(new ProductCodeList
+            {
+                ProductCode = "3234234",
+                ProductDescription = "asdfadf"
+            });
+            productCodes.Add(new ProductCodeList
+            {
+                ProductCode = "4564564",
+                ProductDescription = "ar"
+            });
+            return productCodes;
 
             string query = "usp_GetActiveProducts";
             using (SqlConnection con = new SqlConnection(this.settings.Value.ConnectionString))
@@ -90,17 +90,17 @@ namespace BlackOPS.Repository
         {
             List<PricePlanInfo> productCodes = new List<PricePlanInfo>();
             prefix = prefix ?? string.Empty;
-            //productCodes.Add(new PricePlanInfo
-            //{
-            //    PricePlanId = 2,
-            //    PricePlanName = "ind"
-            //});
-            //productCodes.Add(new PricePlanInfo
-            //{
-            //    PricePlanId = 1,
-            //    PricePlanName = "england"
-            //});
-            //return productCodes;
+            productCodes.Add(new PricePlanInfo
+            {
+                PricePlanId = 2,
+                PricePlanName = "ind"
+            });
+            productCodes.Add(new PricePlanInfo
+            {
+                PricePlanId = 1,
+                PricePlanName = "england"
+            });
+            return productCodes;
 
             List<PricePlanInfo> pricePlanInfos = new List<PricePlanInfo>();
             string query = "usp_GetActivePricePlan";
@@ -131,30 +131,30 @@ namespace BlackOPS.Repository
         public List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo)
         {
             List<AcitvePromoInfo> productCodes = new List<AcitvePromoInfo>();
-            //productCodes.Add(new AcitvePromoInfo
-            //{
-            //    Id = 1,
-            //    ProductCode = "test",
-            //    ProductDesc = "test",
-            //    StartDate = "test",
-            //    EndDate = "test",
-            //    SchemeName = "SchemeName",
-            //    RegularPrice = 1,
-            //    PromoPrice = 1
-            //});
-            //productCodes.Add(new AcitvePromoInfo
-            //{ 
-            //    Id = 2,
-            //    ProductCode = "ProductCode2",
-            //    ProductDesc = "ProductDesc3",
-            //    StartDate = "StartDate",
-            //    EndDate = "EndDate",
-            //    SchemeName = "SchemeName2",
-            //    RegularPrice = 3,
-            //    PromoPrice = 3,
-            //});
+            productCodes.Add(new AcitvePromoInfo
+            {
+                Id = 1,
+                ProductCode = "test",
+                ProductDesc = "test",
+                StartDate = "test",
+                EndDate = "test",
+                SchemeName = "SchemeName",
+                RegularPrice = 1,
+                PromoPrice = 1
+            });
+            productCodes.Add(new AcitvePromoInfo
+            {
+                Id = 2,
+                ProductCode = "ProductCode2",
+                ProductDesc = "ProductDesc3",
+                StartDate = "StartDate",
+                EndDate = "EndDate",
+                SchemeName = "SchemeName2",
+                RegularPrice = 3,
+                PromoPrice = 3,
+            });
 
-            //return productCodes;
+            return productCodes;
             List<AcitvePromoInfo> pricePlanInfos = new List<AcitvePromoInfo>();
             string query = "usp_GetActivePromoBasedonProdCode";
             using (SqlConnection con = new SqlConnection(this.settings.Value.ConnectionString))
@@ -165,7 +165,7 @@ namespace BlackOPS.Repository
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@productCode", searchPromo.ProductCode);
                     command.Parameters.AddWithValue("@schemeName", searchPromo.PriceScheme);
-                    command.Parameters.AddWithValue("@pricePlanId", searchPromo.PlanId);
+                    command.Parameters.AddWithValue("@pricePlanId", searchPromo.PricePlanId);
 
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())

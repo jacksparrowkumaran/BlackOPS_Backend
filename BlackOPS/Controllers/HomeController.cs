@@ -50,7 +50,7 @@ namespace BlackOPS.Controllers
         }
 
         [HttpPost("GetActivePromo")]
-        public ActionResult GetActivePromoInfo(SearchPromo searchPromo)
+        public ActionResult GetActivePromoInfo([FromBody] SearchPromo searchPromo)
         {
             promoLaunchService = new PromoLaunchService(this.settings);
             return Json(promoLaunchService.GetActivePromoInfo(searchPromo));

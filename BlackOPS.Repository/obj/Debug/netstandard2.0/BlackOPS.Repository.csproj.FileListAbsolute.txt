@@ -36,3 +36,15 @@ C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.csproj.CopyComplete
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.dll
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.pdb
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Repository.deps.json
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Repository.dll
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Repository.pdb
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Models.dll
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Models.pdb
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.csprojAssemblyReference.cache
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.csproj.CoreCompileInputs.cache
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.AssemblyInfoInputs.cache
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.AssemblyInfo.cs
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.csproj.CopyComplete
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.dll
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.pdb

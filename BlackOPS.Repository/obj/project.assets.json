@@ -2121,11 +2121,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Repository\\BlackOPS.Repository.csproj",
+      "projectUniqueName": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Repository\\BlackOPS.Repository.csproj",
       "projectName": "BlackOPS.Repository",
-      "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Repository\\BlackOPS.Repository.csproj",
+      "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Repository\\BlackOPS.Repository.csproj",
       "packagesPath": "C:\\Users\\arunkumar.s\\.nuget\\packages\\",
-      "outputPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Repository\\obj\\",
+      "outputPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2144,8 +2144,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj": {
-              "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj"
+            "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj": {
+              "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj"
             }
           }
         }

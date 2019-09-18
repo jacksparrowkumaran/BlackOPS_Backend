@@ -25,3 +25,12 @@ C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.AssemblyInfo.cs
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.dll
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.pdb
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\bin\Debug\netstandard2.0\BlackOPS.Models.deps.json
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\bin\Debug\netstandard2.0\BlackOPS.Models.dll
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\bin\Debug\netstandard2.0\BlackOPS.Models.pdb
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.csprojAssemblyReference.cache
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.csproj.CoreCompileInputs.cache
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.AssemblyInfoInputs.cache
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.AssemblyInfo.cs
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.dll
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Models\obj\Debug\netstandard2.0\BlackOPS.Models.pdb

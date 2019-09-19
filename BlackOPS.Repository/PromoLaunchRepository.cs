@@ -49,7 +49,7 @@ namespace BlackOPS.Repository
         public List<ProductCodeList> GetProductCodeInfo(string prefix)
         {
             List<ProductCodeList> productCodes = new List<ProductCodeList>();
-            prefix = prefix ?? string.Empty;
+            //prefix = prefix ?? string.Empty;
             //productCodes.Add(new ProductCodeList
             //{
             //    ProductCode = "3234234",
@@ -89,8 +89,8 @@ namespace BlackOPS.Repository
 
         public List<PricePlanInfo> GetPricePlanInfo(string prefix)
         {
-            List<PricePlanInfo> productCodes = new List<PricePlanInfo>();
-            prefix = prefix ?? string.Empty;
+            //List<PricePlanInfo> productCodes = new List<PricePlanInfo>();
+            //prefix = prefix ?? string.Empty;
             //productCodes.Add(new PricePlanInfo
             //{
             //    PricePlanId = 2,

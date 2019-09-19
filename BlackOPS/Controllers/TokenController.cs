@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using BlackOPS.Models.Login;
@@ -50,17 +51,23 @@ namespace BlackOPS.Controllers
 
         }
 
-        private string BuildToken(UserViewModel user)
+        private string BuildToken(UserViewModel userInfo)
 
         {
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var claims = new[] {
+                new Claim(JwtRegisteredClaimNames.Sub, userInfo.UserName),
+                new Claim(JwtRegisteredClaimNames.Email, userInfo.Email)
+            };
 
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
 
               _config["Jwt:Issuer"],
+
+              claims,
 
               expires: DateTime.Now.AddMinutes(30),
 
@@ -76,11 +83,11 @@ namespace BlackOPS.Controllers
 
             UserViewModel user = null;
 
-            if (login.Username == "pablo" && login.Password == "secret")
+            if (login.Username == "admin" && login.Password == "admin")
 
             {
 
-                user = new UserViewModel { Name = "Pablo" };
+                user = new UserViewModel { UserName = "Pablo", Email = "admin@gmail.com" };
 
             }
 

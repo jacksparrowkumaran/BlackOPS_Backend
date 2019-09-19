@@ -13091,11 +13091,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS\\BlackOPS.csproj",
+      "projectUniqueName": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS\\BlackOPS.csproj",
       "projectName": "BlackOPS",
-      "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS\\BlackOPS.csproj",
+      "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS\\BlackOPS.csproj",
       "packagesPath": "C:\\Users\\arunkumar.s\\.nuget\\packages\\",
-      "outputPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS\\obj\\",
+      "outputPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13114,14 +13114,14 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Interface\\BlackOPS.Interface.csproj": {
-              "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Interface\\BlackOPS.Interface.csproj"
+            "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Interface\\BlackOPS.Interface.csproj": {
+              "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Interface\\BlackOPS.Interface.csproj"
             },
-            "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj": {
-              "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj"
+            "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj": {
+              "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj"
             },
-            "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj": {
-              "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj"
+            "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj": {
+              "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj"
             }
           }
         }

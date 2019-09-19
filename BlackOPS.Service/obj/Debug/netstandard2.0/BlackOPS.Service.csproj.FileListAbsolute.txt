@@ -58,3 +58,5 @@ C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\BlackOPS.Interface.pdb
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.xml
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\BlackOPS.Interface.dll
+F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\BlackOPS.Interface.pdb

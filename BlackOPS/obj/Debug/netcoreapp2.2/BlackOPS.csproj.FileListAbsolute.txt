@@ -96,3 +96,5 @@ F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS\obj\Debug\netcoreapp2.2\BlackOPS.Ra
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS\obj\Debug\netcoreapp2.2\BlackOPS.csproj.CopyComplete
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS\obj\Debug\netcoreapp2.2\BlackOPS.dll
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS\obj\Debug\netcoreapp2.2\BlackOPS.pdb
+C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS\bin\Debug\netcoreapp2.2\BlackOPS.Interface.dll
+C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS\bin\Debug\netcoreapp2.2\BlackOPS.Interface.pdb

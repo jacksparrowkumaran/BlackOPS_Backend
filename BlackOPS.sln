@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackOPS", "BlackOPS\BlackOPS.csproj", "{7F83F035-3621-44E4-AC82-F81A9F598438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackOPS.Models", "BlackOPS.Models\BlackOPS.Models.csproj", "{D3C2CBF1-794B-4EEE-9F9E-6F6D736FD47A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackOPS.Models", "BlackOPS.Models\BlackOPS.Models.csproj", "{D3C2CBF1-794B-4EEE-9F9E-6F6D736FD47A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackOPS.Service", "BlackOPS.Service\BlackOPS.Service.csproj", "{C2CBCFE0-95D1-4908-90BD-B7AACAA1BEDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackOPS.Service", "BlackOPS.Service\BlackOPS.Service.csproj", "{C2CBCFE0-95D1-4908-90BD-B7AACAA1BEDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackOPS.Repository", "BlackOPS.Repository\BlackOPS.Repository.csproj", "{F9B41453-95D9-4D84-89A1-C28CCDF48830}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackOPS.Repository", "BlackOPS.Repository\BlackOPS.Repository.csproj", "{F9B41453-95D9-4D84-89A1-C28CCDF48830}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackOPS.Interface", "BlackOPS.Interface\BlackOPS.Interface.csproj", "{78988263-5FCA-401C-9EA3-E6FB917A77AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F9B41453-95D9-4D84-89A1-C28CCDF48830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9B41453-95D9-4D84-89A1-C28CCDF48830}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9B41453-95D9-4D84-89A1-C28CCDF48830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78988263-5FCA-401C-9EA3-E6FB917A77AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78988263-5FCA-401C-9EA3-E6FB917A77AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78988263-5FCA-401C-9EA3-E6FB917A77AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78988263-5FCA-401C-9EA3-E6FB917A77AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

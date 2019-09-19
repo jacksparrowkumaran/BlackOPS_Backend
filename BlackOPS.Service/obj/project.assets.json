@@ -433,6 +433,19 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
+      "BlackOPS.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "BlackOPS.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BlackOPS.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlackOPS.Interface.dll": {}
+        }
+      },
       "BlackOPS.Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -447,6 +460,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "BlackOPS.Interface": "1.0.0",
           "BlackOPS.Models": "1.0.0",
           "Microsoft.Extensions.Options": "2.2.0",
           "System.Data.Common": "4.3.0",
@@ -2115,6 +2129,11 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "BlackOPS.Interface/1.0.0": {
+      "type": "project",
+      "path": "../BlackOPS.Interface/BlackOPS.Interface.csproj",
+      "msbuildProject": "../BlackOPS.Interface/BlackOPS.Interface.csproj"
+    },
     "BlackOPS.Models/1.0.0": {
       "type": "project",
       "path": "../BlackOPS.Models/BlackOPS.Models.csproj",
@@ -2139,11 +2158,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj",
+      "projectUniqueName": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj",
       "projectName": "BlackOPS.Service",
-      "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj",
+      "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj",
       "packagesPath": "C:\\Users\\arunkumar.s\\.nuget\\packages\\",
-      "outputPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Service\\obj\\",
+      "outputPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2162,8 +2181,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Repository\\BlackOPS.Repository.csproj": {
-              "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Repository\\BlackOPS.Repository.csproj"
+            "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Repository\\BlackOPS.Repository.csproj": {
+              "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Repository\\BlackOPS.Repository.csproj"
             }
           }
         }

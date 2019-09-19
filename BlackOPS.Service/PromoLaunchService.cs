@@ -1,4 +1,5 @@
-﻿using BlackOPS.Models;
+﻿using BlackOPS.Interface.Promotion.Services;
+using BlackOPS.Models;
 using BlackOPS.Models.PromoLaunch;
 using BlackOPS.Repository;
 using Microsoft.Extensions.Options;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 
 namespace BlackOPS.Service
 {
-    public class PromoLaunchService
+    public class PromoLaunchService : IPromoLaunchService
     {
         private PromoLaunchRepository promoLaunchRepository = null;
         public PromoLaunchService(IOptions<ConfigurationManager> settings)
@@ -33,6 +34,11 @@ namespace BlackOPS.Service
         public List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo)
         {
             return promoLaunchRepository.GetActivePromoInfo(searchPromo);
+        }
+
+        public APIResponse AddNewPromotion(AddNewPromoInfo addNewPromoInfo)
+        {
+            return promoLaunchRepository.AddNewPromotion(addNewPromoInfo);
         }
     }
 }

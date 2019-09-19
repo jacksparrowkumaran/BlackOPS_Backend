@@ -54,3 +54,7 @@ F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Service\obj\Debug\netstandard2.0\Bl
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Service\obj\Debug\netstandard2.0\BlackOPS.Service.csproj.CopyComplete
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Service\obj\Debug\netstandard2.0\BlackOPS.Service.dll
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Service\obj\Debug\netstandard2.0\BlackOPS.Service.pdb
+C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\BlackOPS.Interface.dll
+C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\BlackOPS.Interface.pdb
+C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Service\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.xml

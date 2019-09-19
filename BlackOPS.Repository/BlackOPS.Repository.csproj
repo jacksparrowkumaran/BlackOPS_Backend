@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlackOPS.Interface\BlackOPS.Interface.csproj" />
     <ProjectReference Include="..\BlackOPS.Models\BlackOPS.Models.csproj" />
   </ItemGroup>
 

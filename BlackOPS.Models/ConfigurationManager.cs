@@ -7,5 +7,7 @@ namespace BlackOPS.Models
     public class ConfigurationManager
     {
         public string ConnectionString { get; set; }
+
+        public string GQNet { get; set; }
     }
 }

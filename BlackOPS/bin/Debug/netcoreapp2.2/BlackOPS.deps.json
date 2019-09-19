@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.2": {
       "BlackOPS/1.0.0": {
         "dependencies": {
+          "BlackOPS.Interface": "1.0.0",
           "BlackOPS.Models": "1.0.0",
           "BlackOPS.Service": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
@@ -447,6 +448,17 @@
           }
         }
       },
+      "BlackOPS.Interface/1.0.0": {
+        "dependencies": {
+          "BlackOPS.Models": "1.0.0"
+        },
+        "runtime": {
+          "BlackOPS.Interface.dll": {}
+        },
+        "compile": {
+          "BlackOPS.Interface.dll": {}
+        }
+      },
       "BlackOPS.Models/1.0.0": {
         "runtime": {
           "BlackOPS.Models.dll": {}
@@ -457,6 +469,7 @@
       },
       "BlackOPS.Repository/1.0.0": {
         "dependencies": {
+          "BlackOPS.Interface": "1.0.0",
           "BlackOPS.Models": "1.0.0",
           "Microsoft.Extensions.Options": "2.2.0",
           "System.Data.Common": "4.3.0",
@@ -3821,6 +3834,11 @@
       "sha512": "sha512-S0wEUiKcLvRlkFUXca8uio1UQ5bYQzYgOmOKtCqaBQC3GR9AJjh43otcM32IGsAyvadFTaAMw9Irm6dS4Evfng==",
       "path": "system.text.encoding.codepages/4.5.0",
       "hashPath": "system.text.encoding.codepages.4.5.0.nupkg.sha512"
+    },
+    "BlackOPS.Interface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "BlackOPS.Models/1.0.0": {
       "type": "project",

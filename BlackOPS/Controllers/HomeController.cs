@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using BlackOPS.Models;
 using BlackOPS.Models.PromoLaunch;
 using BlackOPS.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
 namespace BlackOPS.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class HomeController : Controller
     {
         private IOptions<ConfigurationManager> settings;
@@ -19,6 +21,7 @@ namespace BlackOPS.Controllers
         public HomeController(IOptions<ConfigurationManager> settings)
         {
             this.settings = settings;
+            promoLaunchService = new PromoLaunchService(this.settings);
         }
 
      
@@ -31,29 +34,31 @@ namespace BlackOPS.Controllers
         [HttpGet("GetCountryList/{id}")]
         public ActionResult GetCountryList(string prefix)
         {
-            promoLaunchService = new PromoLaunchService(this.settings);
             return Json(promoLaunchService.GetCountryList(prefix));
         }
 
         [HttpPost("GetProducts")]
         public ActionResult GetProductCodeInfo([FromBody] ProductSearch prefix)
         {
-            promoLaunchService = new PromoLaunchService(this.settings);
             return Json(promoLaunchService.GetProductCodeInfo(prefix.Prefix));
         }
 
         [HttpPost("GetPricePlanInfo")]
         public ActionResult GetPricePlanInfo(string prefix)
         {
-            promoLaunchService = new PromoLaunchService(this.settings);
             return Json(promoLaunchService.GetPricePlanInfo(prefix));
         }
 
         [HttpPost("GetActivePromo")]
         public ActionResult GetActivePromoInfo([FromBody] SearchPromo searchPromo)
         {
-            promoLaunchService = new PromoLaunchService(this.settings);
             return Json(promoLaunchService.GetActivePromoInfo(searchPromo));
+        }
+
+        [HttpPost("AddNewPromo")]
+        public ActionResult AddNewPromo([FromBody] AddNewPromoInfo addNewPromo)
+        {
+            return Json(promoLaunchService.AddNewPromotion(addNewPromo));
         }
     }
 

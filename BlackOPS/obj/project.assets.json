@@ -4740,6 +4740,19 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "BlackOPS.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "BlackOPS.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BlackOPS.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlackOPS.Interface.dll": {}
+        }
+      },
       "BlackOPS.Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -4754,6 +4767,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "BlackOPS.Interface": "1.0.0",
           "BlackOPS.Models": "1.0.0",
           "Microsoft.Extensions.Options": "2.2.0",
           "System.Data.Common": "4.3.0",
@@ -13038,6 +13052,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "BlackOPS.Interface/1.0.0": {
+      "type": "project",
+      "path": "../BlackOPS.Interface/BlackOPS.Interface.csproj",
+      "msbuildProject": "../BlackOPS.Interface/BlackOPS.Interface.csproj"
+    },
     "BlackOPS.Models/1.0.0": {
       "type": "project",
       "path": "../BlackOPS.Models/BlackOPS.Models.csproj",
@@ -13056,6 +13075,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "BlackOPS.Interface >= 1.0.0",
       "BlackOPS.Models >= 1.0.0",
       "BlackOPS.Service >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
@@ -13071,11 +13091,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS\\BlackOPS.csproj",
+      "projectUniqueName": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS\\BlackOPS.csproj",
       "projectName": "BlackOPS",
-      "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS\\BlackOPS.csproj",
+      "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS\\BlackOPS.csproj",
       "packagesPath": "C:\\Users\\arunkumar.s\\.nuget\\packages\\",
-      "outputPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS\\obj\\",
+      "outputPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13094,11 +13114,14 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj": {
-              "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj"
+            "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Interface\\BlackOPS.Interface.csproj": {
+              "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Interface\\BlackOPS.Interface.csproj"
             },
-            "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj": {
-              "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj"
+            "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj": {
+              "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj"
+            },
+            "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj": {
+              "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Service\\BlackOPS.Service.csproj"
             }
           }
         }

@@ -23,21 +23,21 @@ namespace BlackOPS.Repository
         public List<CountryList> GetCountryList(string prefix)
         {
             List<CountryList> countryList = new List<CountryList>();
-            string query = "usp_GetActiveProducts";
+            string query = "dbo.usp_GetCountryList";
             using (SqlConnection con = new SqlConnection(this.settings.Value.ConnectionString))
             {
                 con.Open();
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
                     command.Parameters.AddWithValue("@prefix", prefix);
-
+                    command.CommandType = CommandType.StoredProcedure;
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         countryList.Add(new CountryList
                         {
-                            CountryCode = reader["usp_GetActiveProducts"].ToString(),
-                            CountryName = reader[""].ToString()
+                            CountryCode =  reader["CountryCode"].ToString(),
+                            CountryName = Convert.ToString(reader["CountryName"])
                         });
                     }
 
@@ -175,8 +175,8 @@ namespace BlackOPS.Repository
                         {
                             ProductCode = reader["ProdCode"].ToString(),
                             ProductDesc = Convert.ToString(reader["ProdName"]),
-                            StartDate = Convert.ToDateTime(reader["StartDate"]).ToString("dd MMM yyyy hh:mm"),
-                            EndDate = Convert.ToDateTime(reader["EndDate"]).ToString("dd MMM yyyy hh:mm"),
+                            StartDate = Convert.ToDateTime(reader["StartDate"]).ToString("dd MMM yyyy hh:mm tt"),
+                            EndDate = Convert.ToDateTime(reader["EndDate"]).ToString("dd MMM yyyy hh:mm tt"),
                             SchemeName = Convert.ToString(reader["PriceSchemeName"]),
                             RegularPrice = Convert.ToDecimal(reader["RegularPrice"]),
                             PromoPrice = Convert.ToDecimal(reader["PromoPrice"]),

@@ -49,8 +49,6 @@ F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.dll
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\obj\Debug\netstandard2.0\BlackOPS.Repository.pdb
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Interface.dll
-C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Interface.pdb
-C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.xml
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Interface.dll
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Repository\bin\Debug\netstandard2.0\BlackOPS.Interface.pdb

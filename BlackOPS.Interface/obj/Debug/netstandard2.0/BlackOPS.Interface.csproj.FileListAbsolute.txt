@@ -2,9 +2,7 @@ C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\BlackOPS.Interface.dll
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\BlackOPS.Interface.pdb
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\BlackOPS.Models.dll
-C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\BlackOPS.Models.pdb
-C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.xml
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.csprojAssemblyReference.cache
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.csproj.CoreCompileInputs.cache
 C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.AssemblyInfoInputs.cache
@@ -24,3 +22,5 @@ F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.csproj.CopyComplete
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.dll
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.pdb
+C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml

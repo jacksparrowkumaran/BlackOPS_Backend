@@ -31,10 +31,10 @@ namespace BlackOPS.Controllers
             return loginModel;
         }
 
-        [HttpGet("GetCountryList/{id}")]
-        public ActionResult GetCountryList(string prefix)
+        [HttpPost("GetCountryList")]
+        public ActionResult GetCountryList([FromBody] ProductSearch searchInfo)
         {
-            return Json(promoLaunchService.GetCountryList(prefix));
+            return Json(promoLaunchService.GetCountryList(searchInfo.Prefix));
         }
 
         [HttpPost("GetProducts")]

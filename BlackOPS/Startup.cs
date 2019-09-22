@@ -31,7 +31,7 @@ namespace BlackOPS
             DependencyInjectionConfig.AddScope(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.Configure<ConfigurationManager>(Configuration.GetSection("ConfigurationManager"));
-            JwtTokenConfig.AddAuthentication(services, Configuration);
+            JwtTokenConfig.AddAuthentication(services, Configuration); 
             services.AddMvc()
                     .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
         }

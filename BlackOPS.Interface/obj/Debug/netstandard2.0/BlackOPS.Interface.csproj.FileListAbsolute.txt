@@ -22,5 +22,3 @@ F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.csproj.CopyComplete
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.dll
 F:\BlackOPSBackEnd\BlackOPS_Backend\BlackOPS.Interface\obj\Debug\netstandard2.0\BlackOPS.Interface.pdb
-C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
-C:\Optimuz\Automation\BlackOPS_Backend\BlackOPS.Interface\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml

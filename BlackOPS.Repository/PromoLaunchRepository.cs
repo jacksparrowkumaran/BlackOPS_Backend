@@ -229,5 +229,40 @@ namespace BlackOPS.Repository
 
             return aPIResponse;
         }
+
+        public APIResponse UpdatePromoInfo(UpdatePromoInfo updatePromoInfo)
+        {
+            APIResponse aPIResponse = new APIResponse();
+            try
+            {
+                string query = "dbo.usp_UpdateLaunchPromotion";
+                using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
+                {
+                    con.Open();
+                    using (SqlCommand command = new SqlCommand(query, con))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@PriceSchemeID", updatePromoInfo.PriceSchemeID);
+                        command.Parameters.AddWithValue("@EndDate", updatePromoInfo.EndDate);
+                        command.Parameters.AddWithValue("@RegularPrice", updatePromoInfo.RegularPrice);
+                        command.Parameters.AddWithValue("@PromoPrice", updatePromoInfo.PromoPrice);
+                        command.Parameters.AddWithValue("@Currency", updatePromoInfo.Currency);
+                        command.Parameters.AddWithValue("@CountryCode", updatePromoInfo.CountryCode);
+
+                        command.ExecuteNonQuery();
+
+                    }
+                }
+                aPIResponse.IsSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                aPIResponse.IsSuccess = false;
+                aPIResponse.ErrorMessage = ex.Message;
+            }
+
+            return aPIResponse;
+
+        }
     }
 }

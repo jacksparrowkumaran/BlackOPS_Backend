@@ -12,10 +12,8 @@ namespace BlackOPS.Models.PromoLaunch
         public string StartDate { get; set; }
         public string EndDate { get; set; }
 
-        [Column(TypeName = "decimal(18, 2)")]
         public decimal RegularPrice { get; set; }
 
-        [Column(TypeName = "decimal(18, 2)")]
         public decimal PromoPrice { get; set; }
         public string SchemeName { get; set; }
         public bool IsRetail { get; set; }

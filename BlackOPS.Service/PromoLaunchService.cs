@@ -1,44 +1,47 @@
-﻿using BlackOPS.Interface.Promotion.Services;
+﻿using BlackOPS.Interface.Promotion.Repositories;
+using BlackOPS.Interface.Promotion.Services;
 using BlackOPS.Models;
 using BlackOPS.Models.PromoLaunch;
-using BlackOPS.Repository;
-using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
 
 namespace BlackOPS.Service
 {
     public class PromoLaunchService : IPromoLaunchService
     {
-        private PromoLaunchRepository promoLaunchRepository = null;
-        public PromoLaunchService(IOptions<ConfigurationManager> settings)
+        private IPromoLaunchRepository iPromoLaunchRepository = null;
+        public PromoLaunchService(IPromoLaunchRepository IPromoRepository)
         {
-            promoLaunchRepository = new PromoLaunchRepository(settings);
+            iPromoLaunchRepository = IPromoRepository;
         }
 
         public List<CountryList> GetCountryList(string prefix)
         {
-            return promoLaunchRepository.GetCountryList(prefix);
+            return iPromoLaunchRepository.GetCountryList(prefix);
         }
 
         public List<ProductCodeList> GetProductCodeInfo(string prefix)
         {
-            return promoLaunchRepository.GetProductCodeInfo(prefix);
+            return iPromoLaunchRepository.GetProductCodeInfo(prefix);
         }
 
         public List<PricePlanInfo> GetPricePlanInfo(string prefix)
         {
-            return promoLaunchRepository.GetPricePlanInfo(prefix);
+            return iPromoLaunchRepository.GetPricePlanInfo(prefix);
         }
 
         public List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo)
         {
-            return promoLaunchRepository.GetActivePromoInfo(searchPromo);
+            return iPromoLaunchRepository.GetActivePromoInfo(searchPromo);
         }
 
         public APIResponse AddNewPromotion(AddNewPromoInfo addNewPromoInfo)
         {
-            return promoLaunchRepository.AddNewPromotion(addNewPromoInfo);
+            return iPromoLaunchRepository.AddNewPromotion(addNewPromoInfo);
+        }
+
+        public APIResponse UpdatePromoInfo(UpdatePromoInfo updatePromoInfo)
+        {
+            return iPromoLaunchRepository.UpdatePromoInfo(updatePromoInfo);
         }
     }
 }

@@ -13,5 +13,6 @@ namespace BlackOPS.Interface.Promotion.Services
         List<PricePlanInfo> GetPricePlanInfo(string prefix);
         List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo);
         APIResponse AddNewPromotion(AddNewPromoInfo addNewPromoInfo);
+        APIResponse UpdatePromoInfo(UpdatePromoInfo updatePromoInfo);
     }
 }

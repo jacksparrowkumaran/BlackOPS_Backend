@@ -14,5 +14,7 @@ namespace BlackOPS.Interface.Promotion.Repositories
         List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo);
         APIResponse AddNewPromotion(AddNewPromoInfo addNewPromoInfo);
 
+        APIResponse UpdatePromoInfo(UpdatePromoInfo updatePromoInfo);
+
     }
 }

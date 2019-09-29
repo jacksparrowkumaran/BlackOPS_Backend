@@ -23,6 +23,17 @@ namespace BlackOPS.Repository
         public List<CountryList> GetCountryList(string prefix)
         {
             List<CountryList> countryList = new List<CountryList>();
+            countryList.Add(new CountryList
+            {
+                CountryCode = "2",
+                CountryName = "ind"
+            });
+            countryList.Add(new CountryList
+            {
+                CountryCode = "1",
+                CountryName = "england"
+            });
+            return countryList;
             string query = "dbo.usp_GetCountryList";
             using (SqlConnection con = new SqlConnection(this.settings.Value.ConnectionString))
             {
@@ -49,18 +60,18 @@ namespace BlackOPS.Repository
         public List<ProductCodeList> GetProductCodeInfo(string prefix)
         {
             List<ProductCodeList> productCodes = new List<ProductCodeList>();
-            //prefix = prefix ?? string.Empty;
-            //productCodes.Add(new ProductCodeList
-            //{
-            //    ProductCode = "3234234",
-            //    ProductDescription = "asdfadf"
-            //});
-            //productCodes.Add(new ProductCodeList
-            //{
-            //    ProductCode = "4564564",
-            //    ProductDescription = "ar"
-            //});
-            //return productCodes;
+            prefix = prefix ?? string.Empty;
+            productCodes.Add(new ProductCodeList
+            {
+                ProductCode = "3234234",
+                ProductDescription = "asdfadf"
+            });
+            productCodes.Add(new ProductCodeList
+            {
+                ProductCode = "4564564",
+                ProductDescription = "ar"
+            });
+            return productCodes;
 
             string query = "usp_GetActiveProducts";
             using (SqlConnection con = new SqlConnection(this.settings.Value.ConnectionString))
@@ -89,19 +100,19 @@ namespace BlackOPS.Repository
 
         public List<PricePlanInfo> GetPricePlanInfo(string prefix)
         {
-            //List<PricePlanInfo> productCodes = new List<PricePlanInfo>();
-            //prefix = prefix ?? string.Empty;
-            //productCodes.Add(new PricePlanInfo
-            //{
-            //    PricePlanId = 2,
-            //    PricePlanName = "ind"
-            //});
-            //productCodes.Add(new PricePlanInfo
-            //{
-            //    PricePlanId = 1,
-            //    PricePlanName = "england"
-            //});
-            //return productCodes;
+            List<PricePlanInfo> productCodes = new List<PricePlanInfo>();
+            prefix = prefix ?? string.Empty;
+            productCodes.Add(new PricePlanInfo
+            {
+                PricePlanId = 2,
+                PricePlanName = "ind"
+            });
+            productCodes.Add(new PricePlanInfo
+            {
+                PricePlanId = 1,
+                PricePlanName = "england"
+            });
+            return productCodes;
 
             List<PricePlanInfo> pricePlanInfos = new List<PricePlanInfo>();
             string query = "usp_GetActivePricePlan";
@@ -132,30 +143,29 @@ namespace BlackOPS.Repository
         public List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo)
         {
             List<AcitvePromoInfo> productCodes = new List<AcitvePromoInfo>();
-            //productCodes.Add(new AcitvePromoInfo
-            //{
-            //    Id = 1,
-            //    ProductCode = "test",
-            //    ProductDesc = "test",
-            //    StartDate = "test",
-            //    EndDate = "test",
-            //    SchemeName = "SchemeName",
-            //    RegularPrice = 1,
-            //    PromoPrice = 1
-            //});
-            //productCodes.Add(new AcitvePromoInfo
-            //{
-            //    Id = 2,
-            //    ProductCode = "ProductCode2",
-            //    ProductDesc = "ProductDesc3",
-            //    StartDate = "StartDate",
-            //    EndDate = "EndDate",
-            //    SchemeName = "SchemeName2",
-            //    RegularPrice = 3,
-            //    PromoPrice = 3,
-            //});
+            productCodes.Add(new AcitvePromoInfo
+            {
+               
+                ProductCode = "test",
+                ProductDesc = "test",
+                StartDate = "test",
+                EndDate = "test",
+                SchemeName = "SchemeName",
+                RegularPrice = 1,
+                PromoPrice = 1
+            });
+            productCodes.Add(new AcitvePromoInfo
+            {
+                ProductCode = "ProductCode2",
+                ProductDesc = "ProductDesc3",
+                StartDate = "StartDate",
+                EndDate = "EndDate",
+                SchemeName = "SchemeName2",
+                RegularPrice = 3,
+                PromoPrice = 3,
+            });
 
-            //return productCodes;
+            return productCodes;
             List<AcitvePromoInfo> pricePlanInfos = new List<AcitvePromoInfo>();
             string query = "dbo.usp_GetActivePromoBasedonProdCode";
             using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
@@ -206,7 +216,7 @@ namespace BlackOPS.Repository
                         command.Parameters.AddWithValue("@PriceSchemeName", addNewPromoInfo.PriceScheme);
                         command.Parameters.AddWithValue("@PricePlanID", addNewPromoInfo.PricePlanId);
                         command.Parameters.AddWithValue("@StartDate", addNewPromoInfo.StartDate);
-                        command.Parameters.AddWithValue("@EndDate", addNewPromoInfo.EndtDate);
+                        command.Parameters.AddWithValue("@EndDate", addNewPromoInfo.EndDate);
                         command.Parameters.AddWithValue("@OldEndDate", addNewPromoInfo.OldPromoDate);
                         command.Parameters.AddWithValue("@Currency", addNewPromoInfo.Currency);
                         command.Parameters.AddWithValue("@IRPrice", addNewPromoInfo.IRPromoPrice);
@@ -214,7 +224,7 @@ namespace BlackOPS.Repository
                         command.Parameters.AddWithValue("@RetailPrice", addNewPromoInfo.RetailPromoPrice);
                         command.Parameters.AddWithValue("@ReRetailPrice", addNewPromoInfo.RetailPromoPrice);
                         command.Parameters.AddWithValue("@CUV", addNewPromoInfo.CUV);
-                        command.Parameters.AddWithValue("@CountryCode", addNewPromoInfo.Country);
+                        command.Parameters.AddWithValue("@CountryCode", addNewPromoInfo.CountryCode);
                         command.CommandType = CommandType.StoredProcedure;
                         command.ExecuteNonQuery();
                     }

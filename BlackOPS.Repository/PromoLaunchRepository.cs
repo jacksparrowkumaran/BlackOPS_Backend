@@ -23,17 +23,7 @@ namespace BlackOPS.Repository
         public List<CountryList> GetCountryList(string prefix)
         {
             List<CountryList> countryList = new List<CountryList>();
-            countryList.Add(new CountryList
-            {
-                CountryCode = "2",
-                CountryName = "ind"
-            });
-            countryList.Add(new CountryList
-            {
-                CountryCode = "1",
-                CountryName = "england"
-            });
-            return countryList;
+            prefix = prefix ?? string.Empty;
             string query = "dbo.usp_GetCountryList";
             using (SqlConnection con = new SqlConnection(this.settings.Value.ConnectionString))
             {
@@ -61,17 +51,6 @@ namespace BlackOPS.Repository
         {
             List<ProductCodeList> productCodes = new List<ProductCodeList>();
             prefix = prefix ?? string.Empty;
-            productCodes.Add(new ProductCodeList
-            {
-                ProductCode = "3234234",
-                ProductDescription = "asdfadf"
-            });
-            productCodes.Add(new ProductCodeList
-            {
-                ProductCode = "4564564",
-                ProductDescription = "ar"
-            });
-            return productCodes;
 
             string query = "usp_GetActiveProducts";
             using (SqlConnection con = new SqlConnection(this.settings.Value.ConnectionString))
@@ -100,19 +79,7 @@ namespace BlackOPS.Repository
 
         public List<PricePlanInfo> GetPricePlanInfo(string prefix)
         {
-            List<PricePlanInfo> productCodes = new List<PricePlanInfo>();
             prefix = prefix ?? string.Empty;
-            productCodes.Add(new PricePlanInfo
-            {
-                PricePlanId = 2,
-                PricePlanName = "ind"
-            });
-            productCodes.Add(new PricePlanInfo
-            {
-                PricePlanId = 1,
-                PricePlanName = "england"
-            });
-            return productCodes;
 
             List<PricePlanInfo> pricePlanInfos = new List<PricePlanInfo>();
             string query = "usp_GetActivePricePlan";
@@ -142,30 +109,6 @@ namespace BlackOPS.Repository
 
         public List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo)
         {
-            List<AcitvePromoInfo> productCodes = new List<AcitvePromoInfo>();
-            productCodes.Add(new AcitvePromoInfo
-            {
-               
-                ProductCode = "test",
-                ProductDesc = "test",
-                StartDate = "test",
-                EndDate = "test",
-                SchemeName = "SchemeName",
-                RegularPrice = 1,
-                PromoPrice = 1
-            });
-            productCodes.Add(new AcitvePromoInfo
-            {
-                ProductCode = "ProductCode2",
-                ProductDesc = "ProductDesc3",
-                StartDate = "StartDate",
-                EndDate = "EndDate",
-                SchemeName = "SchemeName2",
-                RegularPrice = 3,
-                PromoPrice = 3,
-            });
-
-            return productCodes;
             List<AcitvePromoInfo> pricePlanInfos = new List<AcitvePromoInfo>();
             string query = "dbo.usp_GetActivePromoBasedonProdCode";
             using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
@@ -183,6 +126,7 @@ namespace BlackOPS.Repository
                     {
                         pricePlanInfos.Add(new AcitvePromoInfo
                         {
+                            PriceSchemeId = Convert.ToInt32(reader["PriceSchemeID"]),
                             ProductCode = reader["ProdCode"].ToString(),
                             ProductDesc = Convert.ToString(reader["ProdName"]),
                             StartDate = Convert.ToDateTime(reader["StartDate"]).ToString("dd MMM yyyy hh:mm tt"),
@@ -226,7 +170,12 @@ namespace BlackOPS.Repository
                         command.Parameters.AddWithValue("@CUV", addNewPromoInfo.CUV);
                         command.Parameters.AddWithValue("@CountryCode", addNewPromoInfo.CountryCode);
                         command.CommandType = CommandType.StoredProcedure;
-                        command.ExecuteNonQuery();
+                        SqlDataReader reader =  command.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            aPIResponse.ErrorMessage = Convert.ToString(reader["Error"]);
+                            aPIResponse.IsSuccess = string.IsNullOrEmpty(aPIResponse.ErrorMessage) ? true : false;
+                        }
                     }
                 }
                 aPIResponse.IsSuccess = true;
@@ -279,7 +228,7 @@ namespace BlackOPS.Repository
         {
             SelectedPromoInfo selectedPromoInfo = new SelectedPromoInfo();
 
-            string query = "dbo.usp_UpdateLaunchPromotion";
+            string query = "dbo.usp_GetSelectedPromoInfo";
             using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
             {
                 con.Open();
@@ -290,18 +239,18 @@ namespace BlackOPS.Repository
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        selectedPromoInfo.ProductCode = Convert.ToString(reader[""]);
-                        selectedPromoInfo.PricePlan = Convert.ToString(reader[""]);
-                        selectedPromoInfo.IRRegularPrice = Convert.ToDecimal(reader[""]);
-                        selectedPromoInfo.RetailRegularPrice = Convert.ToDecimal(reader[""]);
-                        selectedPromoInfo.PromoPrice = Convert.ToDecimal(reader[""]);
-                        selectedPromoInfo.RetailPromoPrice = Convert.ToDecimal(reader[""]);
-                        selectedPromoInfo.StartDate = Convert.ToString(reader[""]);
-                        selectedPromoInfo.EndtDate = Convert.ToString(reader[""]);
-                        selectedPromoInfo.OldPromoEndDate = Convert.ToString(reader[""]);
-                        selectedPromoInfo.CUV = Convert.ToString(reader[""]);
-                        selectedPromoInfo.CountryId = Convert.ToInt32(reader[""]);
-                        selectedPromoInfo.Currency = Convert.ToString(reader[""]);
+                        selectedPromoInfo.ProductCode = Convert.ToString(reader["ProdCode"]);
+                        selectedPromoInfo.PricePlan = Convert.ToString(reader["Description"]);
+                        selectedPromoInfo.IRRegularPrice = Convert.ToDecimal(reader["IRRegularPrice"]);
+                        selectedPromoInfo.RetailRegularPrice = Convert.ToDecimal(reader["RetailRegularPrice"]);
+                        selectedPromoInfo.PromoPrice = Convert.ToDecimal(reader["PromoPrice"]);
+                        selectedPromoInfo.RetailPromoPrice = Convert.ToDecimal(reader["RetailPromoPrice"]);
+                        selectedPromoInfo.StartDate = Convert.ToString(reader["StartDate"]);
+                        selectedPromoInfo.EndtDate = Convert.ToString(reader["EndDate"]);
+                        selectedPromoInfo.CUV = Convert.ToString(reader["CUV"]);
+                        selectedPromoInfo.CountryCode = Convert.ToString(reader["CountryCode"]);
+                        selectedPromoInfo.CountryName = Convert.ToString(reader["CountryName"]);
+                        selectedPromoInfo.Currency = Convert.ToString(reader["Currency"]);
                     }
 
                 }

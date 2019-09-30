@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BlackOPS.Interface.Promotion.Services
 {
-   public interface IPromoLaunchService
+    public interface IPromoLaunchService
     {
         List<CountryList> GetCountryList(string prefix);
         List<ProductCodeList> GetProductCodeInfo(string prefix);
@@ -14,5 +14,6 @@ namespace BlackOPS.Interface.Promotion.Services
         List<AcitvePromoInfo> GetActivePromoInfo(SearchPromo searchPromo);
         APIResponse AddNewPromotion(AddNewPromoInfo addNewPromoInfo);
         APIResponse UpdatePromoInfo(UpdatePromoInfo updatePromoInfo);
+        SelectedPromoInfo GetSelectedPromo(int schemeId);
     }
 }

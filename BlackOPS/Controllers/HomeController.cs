@@ -61,10 +61,11 @@ namespace BlackOPS.Controllers
             return Json(iPromoLaunchService.UpdatePromoInfo(updatePromoInfo));
         }
 
-        [HttpPost("getSelectedPromo")]
-        public ActionResult GetSelectedPromo([FromBody] int priceSchemeId)
+
+        [HttpPost("GetSelectedPromo/{priceSchemeId}")]
+        public ActionResult GetSelectedPromo(int priceSchemeId)
         {
-            return Json(iPromoLaunchService.UpdatePromoInfo(updatePromoInfo));
+            return Json(iPromoLaunchService.GetSelectedPromo(priceSchemeId));
         }
 
     }

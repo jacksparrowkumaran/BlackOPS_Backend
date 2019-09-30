@@ -43,5 +43,10 @@ namespace BlackOPS.Service
         {
             return iPromoLaunchRepository.UpdatePromoInfo(updatePromoInfo);
         }
+
+        public SelectedPromoInfo GetSelectedPromo(int priceSchemeId)
+        {
+            return iPromoLaunchRepository.GetSelectedPromo(priceSchemeId);
+        }
     }
 }

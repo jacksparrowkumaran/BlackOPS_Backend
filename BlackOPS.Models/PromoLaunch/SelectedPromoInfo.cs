@@ -26,7 +26,9 @@ namespace BlackOPS.Models.PromoLaunch
 
         public string CUV { get; set; }
 
-        public int CountryId { get; set; }
+        public string CountryCode { get; set; }
+
+        public string CountryName { get; set; }
 
         public string Currency { get; set; }
     }

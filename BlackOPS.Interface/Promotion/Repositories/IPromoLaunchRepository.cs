@@ -16,5 +16,7 @@ namespace BlackOPS.Interface.Promotion.Repositories
 
         APIResponse UpdatePromoInfo(UpdatePromoInfo updatePromoInfo);
 
+        SelectedPromoInfo GetSelectedPromo(int schemeId);
+
     }
 }

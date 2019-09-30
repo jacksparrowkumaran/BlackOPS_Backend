@@ -274,5 +274,42 @@ namespace BlackOPS.Repository
             return aPIResponse;
 
         }
+
+        public SelectedPromoInfo GetSelectedPromo(int schemeId)
+        {
+            SelectedPromoInfo selectedPromoInfo = new SelectedPromoInfo();
+
+            string query = "dbo.usp_UpdateLaunchPromotion";
+            using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
+            {
+                con.Open();
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@PriceSchemeID", schemeId);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        selectedPromoInfo.ProductCode = Convert.ToString(reader[""]);
+                        selectedPromoInfo.PricePlan = Convert.ToString(reader[""]);
+                        selectedPromoInfo.IRRegularPrice = Convert.ToDecimal(reader[""]);
+                        selectedPromoInfo.RetailRegularPrice = Convert.ToDecimal(reader[""]);
+                        selectedPromoInfo.PromoPrice = Convert.ToDecimal(reader[""]);
+                        selectedPromoInfo.RetailPromoPrice = Convert.ToDecimal(reader[""]);
+                        selectedPromoInfo.StartDate = Convert.ToString(reader[""]);
+                        selectedPromoInfo.EndtDate = Convert.ToString(reader[""]);
+                        selectedPromoInfo.OldPromoEndDate = Convert.ToString(reader[""]);
+                        selectedPromoInfo.CUV = Convert.ToString(reader[""]);
+                        selectedPromoInfo.CountryId = Convert.ToInt32(reader[""]);
+                        selectedPromoInfo.Currency = Convert.ToString(reader[""]);
+                    }
+
+                }
+            }
+
+
+            return selectedPromoInfo;
+
+        }
     }
 }

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using WebAPI2.App_Start;
 
@@ -31,9 +32,16 @@ namespace BlackOPS
             DependencyInjectionConfig.AddScope(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.Configure<ConfigurationManager>(Configuration.GetSection("ConfigurationManager"));
-            JwtTokenConfig.AddAuthentication(services, Configuration); 
+            JwtTokenConfig.AddAuthentication(services, Configuration);
             services.AddMvc()
-                    .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+                    .AddJsonOptions(options =>
+                    {
+                        options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                        // This prevents the json serializer from parsing dates
+                        options.SerializerSettings.DateParseHandling = DateParseHandling.None;
+                        // This changes how the timezone is converted - RoundtripKind keeps the timezone that was provided and doesn't convert it
+                        options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind;
+                    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

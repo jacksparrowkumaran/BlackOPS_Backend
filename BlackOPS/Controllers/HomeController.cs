@@ -3,6 +3,7 @@ using BlackOPS.Models;
 using BlackOPS.Models.PromoLaunch;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BlackOPS.Controllers
 {
@@ -54,11 +55,18 @@ namespace BlackOPS.Controllers
             return Json(iPromoLaunchService.AddNewPromotion(addNewPromo));
         }
 
-        [HttpPost("AddNewPromo")]
+        [HttpPost("UpdatePromoInfo")]
         public ActionResult UpdatePromoInfo([FromBody] UpdatePromoInfo updatePromoInfo)
         {
             return Json(iPromoLaunchService.UpdatePromoInfo(updatePromoInfo));
         }
+
+        [HttpPost("getSelectedPromo")]
+        public ActionResult GetSelectedPromo([FromBody] int priceSchemeId)
+        {
+            return Json(iPromoLaunchService.UpdatePromoInfo(updatePromoInfo));
+        }
+
     }
 
 

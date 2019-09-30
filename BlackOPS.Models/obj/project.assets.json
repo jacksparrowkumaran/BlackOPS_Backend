@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj",
+      "projectUniqueName": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj",
       "projectName": "BlackOPS.Models",
-      "projectPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj",
+      "projectPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\BlackOPS.Models.csproj",
       "packagesPath": "C:\\Users\\arunkumar.s\\.nuget\\packages\\",
-      "outputPath": "C:\\Optimuz\\Automation\\BlackOPS_Backend\\BlackOPS.Models\\obj\\",
+      "outputPath": "F:\\BlackOPSBackEnd\\BlackOPS_Backend\\BlackOPS.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

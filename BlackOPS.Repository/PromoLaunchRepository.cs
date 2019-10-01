@@ -117,8 +117,8 @@ namespace BlackOPS.Repository
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ProductCode", searchPromo.ProductCode);
-                    command.Parameters.AddWithValue("@PriceSchemeName", searchPromo.PriceScheme);
+                    command.Parameters.AddWithValue("@ProductCode", searchPromo.ProductCode.Trim());
+                    command.Parameters.AddWithValue("@PriceSchemeName", searchPromo.PriceScheme.Trim());
                     command.Parameters.AddWithValue("@PricePlanID", searchPromo.PricePlanId);
 
                     SqlDataReader reader = command.ExecuteReader();
@@ -178,7 +178,6 @@ namespace BlackOPS.Repository
                         }
                     }
                 }
-                aPIResponse.IsSuccess = true;
             }
             catch (Exception ex)
             {
@@ -201,11 +200,19 @@ namespace BlackOPS.Repository
                     using (SqlCommand command = new SqlCommand(query, con))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@PriceSchemeID", updatePromoInfo.PriceSchemeID);
+                        command.Parameters.AddWithValue("@PriceSchemeID", updatePromoInfo.PriceSchemeId);
+                        command.Parameters.AddWithValue("@ProdCode", updatePromoInfo.ProductCode);
+                        command.Parameters.AddWithValue("@PriceSchemeName", updatePromoInfo.PriceScheme);
+                        command.Parameters.AddWithValue("@PricePlanID", updatePromoInfo.PricePlanId);
+                        command.Parameters.AddWithValue("@StartDate", updatePromoInfo.StartDate);
                         command.Parameters.AddWithValue("@EndDate", updatePromoInfo.EndDate);
-                        command.Parameters.AddWithValue("@RegularPrice", updatePromoInfo.RegularPrice);
-                        command.Parameters.AddWithValue("@PromoPrice", updatePromoInfo.PromoPrice);
+                        command.Parameters.AddWithValue("@OldEndDate", updatePromoInfo.OldPromoDate);
                         command.Parameters.AddWithValue("@Currency", updatePromoInfo.Currency);
+                        command.Parameters.AddWithValue("@IRPrice", updatePromoInfo.IRPromoPrice);
+                        command.Parameters.AddWithValue("@ReIRPrice", updatePromoInfo.IRRegularPrice);
+                        command.Parameters.AddWithValue("@RetailPrice", updatePromoInfo.RetailPromoPrice);
+                        command.Parameters.AddWithValue("@ReRetailPrice", updatePromoInfo.RetailRegularPrice);
+                        command.Parameters.AddWithValue("@CUV", updatePromoInfo.CUV);
                         command.Parameters.AddWithValue("@CountryCode", updatePromoInfo.CountryCode);
 
                         command.ExecuteNonQuery();

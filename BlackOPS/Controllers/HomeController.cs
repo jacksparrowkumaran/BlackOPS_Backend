@@ -55,10 +55,10 @@ namespace BlackOPS.Controllers
             return Json(iPromoLaunchService.AddNewPromotion(addNewPromo));
         }
 
-        [HttpPost("UpdatePromoInfo")]
-        public ActionResult UpdatePromoInfo([FromBody] UpdatePromoInfo updatePromoInfo)
+        [HttpPost("PromoUpdate")]
+        public ActionResult PromoUpdate([FromBody] UpdatePromoInfo updatePromo)
         {
-            return Json(iPromoLaunchService.UpdatePromoInfo(updatePromoInfo));
+            return Json(iPromoLaunchService.UpdatePromoInfo(updatePromo));
         }
 
 

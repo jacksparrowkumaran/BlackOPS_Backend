@@ -6,10 +6,12 @@ namespace BlackOPS.Models.PromoLaunch
 {
     public class AddNewPromoInfo
     {
+        public int PriceSchemeId { get; set; }
+
         public string ProductCode { get; set; }
         public int PricePlanId { get; set; }
         public string PriceScheme { get; set; }
-        public string IRRegularPrice { get; set; }
+        public decimal IRRegularPrice { get; set; }
         public decimal RetailRegularPrice { get; set; }
         public decimal RetailPromoPrice { get; set; }
         public decimal IRPromoPrice { get; set; }

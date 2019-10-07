@@ -21,5 +21,9 @@ namespace BlackOPS.Models.PromoLaunch
         public int CUV { get; set; }
         public string CountryCode { get; set; }
         public string Currency { get; set; }
+
+        public decimal ShipFee { get; set; }
+
+        public decimal RSP { get; set; }
     }
 }

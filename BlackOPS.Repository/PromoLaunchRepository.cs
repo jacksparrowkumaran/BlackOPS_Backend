@@ -23,7 +23,7 @@ namespace BlackOPS.Repository
         public List<CountryList> GetCountryList(string prefix)
         {
             List<CountryList> countryList = new List<CountryList>();
-            prefix = prefix ?? string.Empty;
+            prefix = prefix.ToLower() ?? string.Empty;
             string query = "dbo.usp_GetCountryList";
             using (SqlConnection con = new SqlConnection(this.settings.Value.ConnectionString))
             {
@@ -118,7 +118,7 @@ namespace BlackOPS.Repository
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ProductCode", searchPromo.ProductCode.Trim());
-                    command.Parameters.AddWithValue("@PriceSchemeName", searchPromo.PriceScheme.Trim());
+                    command.Parameters.AddWithValue("@CountryCode", searchPromo.CountryCode.Trim());
                     command.Parameters.AddWithValue("@PricePlanID", searchPromo.PricePlanId);
 
                     SqlDataReader reader = command.ExecuteReader();
@@ -157,7 +157,7 @@ namespace BlackOPS.Repository
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@ProdCode", addNewPromoInfo.ProductCode);
-                        command.Parameters.AddWithValue("@PriceSchemeName", addNewPromoInfo.PriceScheme);
+                       // command.Parameters.AddWithValue("@PriceSchemeName", addNewPromoInfo.PriceScheme);
                         command.Parameters.AddWithValue("@PricePlanID", addNewPromoInfo.PricePlanId);
                         command.Parameters.AddWithValue("@StartDate", addNewPromoInfo.StartDate);
                         command.Parameters.AddWithValue("@EndDate", addNewPromoInfo.EndDate);
@@ -169,6 +169,8 @@ namespace BlackOPS.Repository
                         command.Parameters.AddWithValue("@ReRetailPrice", addNewPromoInfo.RetailRegularPrice);
                         command.Parameters.AddWithValue("@CUV", addNewPromoInfo.CUV);
                         command.Parameters.AddWithValue("@CountryCode", addNewPromoInfo.CountryCode);
+                        command.Parameters.AddWithValue("@ShipFeeSH", addNewPromoInfo.ShipFee);
+                        command.Parameters.AddWithValue("@DSP", addNewPromoInfo.RSP);
                         command.CommandType = CommandType.StoredProcedure;
                         SqlDataReader reader =  command.ExecuteReader();
                         if (reader.Read())
@@ -202,7 +204,6 @@ namespace BlackOPS.Repository
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@PriceSchemeID", updatePromoInfo.PriceSchemeId);
                         command.Parameters.AddWithValue("@ProdCode", updatePromoInfo.ProductCode);
-                        command.Parameters.AddWithValue("@PriceSchemeName", updatePromoInfo.PriceScheme);
                         command.Parameters.AddWithValue("@PricePlanID", updatePromoInfo.PricePlanId);
                         command.Parameters.AddWithValue("@StartDate", updatePromoInfo.StartDate);
                         command.Parameters.AddWithValue("@EndDate", updatePromoInfo.EndDate);
@@ -214,6 +215,8 @@ namespace BlackOPS.Repository
                         command.Parameters.AddWithValue("@ReRetailPrice", updatePromoInfo.RetailRegularPrice);
                         command.Parameters.AddWithValue("@CUV", updatePromoInfo.CUV);
                         command.Parameters.AddWithValue("@CountryCode", updatePromoInfo.CountryCode);
+                        command.Parameters.AddWithValue("@ShipFeeSH", updatePromoInfo.ShipFee);
+                        command.Parameters.AddWithValue("@DSP", updatePromoInfo.RSP);
 
                         command.ExecuteNonQuery();
 
@@ -242,6 +245,7 @@ namespace BlackOPS.Repository
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
                     command.CommandType = CommandType.StoredProcedure;
+                    command.CommandTimeout = 120;
                     command.Parameters.AddWithValue("@PriceSchemeID", schemeId);
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
@@ -258,6 +262,9 @@ namespace BlackOPS.Repository
                         selectedPromoInfo.CountryCode = Convert.ToString(reader["CountryCode"]);
                         selectedPromoInfo.CountryName = Convert.ToString(reader["CountryName"]);
                         selectedPromoInfo.Currency = Convert.ToString(reader["Currency"]);
+                        selectedPromoInfo.Currency = Convert.ToString(reader["Currency"]);
+                        selectedPromoInfo.ShipFee = Convert.ToDecimal(reader["ShipFee"]);
+                        selectedPromoInfo.RSP = Convert.ToDecimal(reader["RSP"]);
                     }
 
                 }

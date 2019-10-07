@@ -166,7 +166,7 @@ namespace BlackOPS.Repository
                         command.Parameters.AddWithValue("@IRPrice", addNewPromoInfo.IRPromoPrice);
                         command.Parameters.AddWithValue("@ReIRPrice", addNewPromoInfo.IRRegularPrice);
                         command.Parameters.AddWithValue("@RetailPrice", addNewPromoInfo.RetailPromoPrice);
-                        command.Parameters.AddWithValue("@ReRetailPrice", addNewPromoInfo.RetailPromoPrice);
+                        command.Parameters.AddWithValue("@ReRetailPrice", addNewPromoInfo.RetailRegularPrice);
                         command.Parameters.AddWithValue("@CUV", addNewPromoInfo.CUV);
                         command.Parameters.AddWithValue("@CountryCode", addNewPromoInfo.CountryCode);
                         command.CommandType = CommandType.StoredProcedure;
@@ -254,7 +254,7 @@ namespace BlackOPS.Repository
                         selectedPromoInfo.RetailPromoPrice = Convert.ToDecimal(reader["RetailPromoPrice"]);
                         selectedPromoInfo.StartDate = Convert.ToString(reader["StartDate"]);
                         selectedPromoInfo.EndtDate = Convert.ToString(reader["EndDate"]);
-                        selectedPromoInfo.CUV = Convert.ToString(reader["CUV"]);
+                        selectedPromoInfo.CUV = (Convert.ToInt32(reader["CUV"]) * 1000).ToString();
                         selectedPromoInfo.CountryCode = Convert.ToString(reader["CountryCode"]);
                         selectedPromoInfo.CountryName = Convert.ToString(reader["CountryName"]);
                         selectedPromoInfo.Currency = Convert.ToString(reader["Currency"]);

@@ -274,5 +274,47 @@ namespace BlackOPS.Repository
             return selectedPromoInfo;
 
         }
+
+        public APIResponse AddCombotPromo(AddComboProduct updatePromoInfo)
+        {
+            APIResponse aPIResponse = new APIResponse();
+            try
+            {
+                string query = "dbo.usp_AddComboProduct";
+                using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
+                {
+                    con.Open();
+                    using (SqlCommand command = new SqlCommand(query, con))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@MainProductCode", updatePromoInfo.MainProductCode);
+                        command.Parameters.AddWithValue("@ProdCode", updatePromoInfo.ProductCode);
+                        command.Parameters.AddWithValue("@PricePlanID", updatePromoInfo.PricePlanId);
+                        command.Parameters.AddWithValue("@IRPrice", updatePromoInfo.IRPromoPrice);
+                        command.Parameters.AddWithValue("@ReIRPrice", updatePromoInfo.IRPrice);
+                        command.Parameters.AddWithValue("@RetailPrice", updatePromoInfo.RetailPromoPrice);
+                        command.Parameters.AddWithValue("@ReRetailPrice", updatePromoInfo.RetailPrice);
+                        command.Parameters.AddWithValue("@CountryCode", updatePromoInfo.CountryCode);
+
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            aPIResponse.ErrorMessage = Convert.ToString(reader["Error"]);
+                            aPIResponse.IsSuccess = string.IsNullOrEmpty(aPIResponse.ErrorMessage) ? true : false;
+                        }
+
+                    }
+                }
+                aPIResponse.IsSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                aPIResponse.IsSuccess = false;
+                aPIResponse.ErrorMessage = ex.Message;
+            }
+
+            return aPIResponse;
+
+        }
     }
 }

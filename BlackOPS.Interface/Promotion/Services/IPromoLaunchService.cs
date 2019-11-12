@@ -15,5 +15,9 @@ namespace BlackOPS.Interface.Promotion.Services
         APIResponse AddNewPromotion(AddNewPromoInfo addNewPromoInfo);
         APIResponse UpdatePromoInfo(UpdatePromoInfo updatePromoInfo);
         SelectedPromoInfo GetSelectedPromo(int schemeId);
+
+        APIResponse AddCombotPromo(AddComboProduct updatePromoInfo);
     }
+
+
 }

@@ -68,6 +68,12 @@ namespace BlackOPS.Controllers
             return Json(iPromoLaunchService.GetSelectedPromo(priceSchemeId));
         }
 
+        [HttpPost("AddCombo")]
+        public ActionResult AddCombo([FromBody] AddComboProduct addComboProd)
+        {
+            return Json(iPromoLaunchService.AddCombotPromo(addComboProd));
+        }
+
     }
 
 

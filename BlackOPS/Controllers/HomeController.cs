@@ -62,16 +62,40 @@ namespace BlackOPS.Controllers
         }
 
 
-        [HttpPost("GetSelectedPromo/{priceSchemeId}")]
-        public ActionResult GetSelectedPromo(int priceSchemeId)
+        [HttpPost("GetSelectedPromo")]
+        public ActionResult GetSelectedPromo([FromBody] ComboSearchInfo searchPromo)
         {
-            return Json(iPromoLaunchService.GetSelectedPromo(priceSchemeId));
+            return Json(iPromoLaunchService.GetSelectedPromo(searchPromo));
+        }
+
+        //[HttpPost("ValidateComboPromo")]
+        //public ActionResult ValidateComboPromo([FromBody] AddComboPromoInfo addComboProd)
+        //{
+        //    return Json(iPromoLaunchService.ValidatePromoForCombo(addComboProd));
+        //}
+
+        [HttpPost("ValidateComboPromo")]
+        public ActionResult ValidateComboPromo([FromBody] AddComboPromoInfo addComboProd)
+        {
+                      return Json(iPromoLaunchService.ValidatePromoForCombo(addComboProd));
         }
 
         [HttpPost("AddCombo")]
-        public ActionResult AddCombo([FromBody] AddComboProduct addComboProd)
+        public ActionResult AddCombo([FromBody] AddComboPromoInfo addComboProd)
         {
             return Json(iPromoLaunchService.AddCombotPromo(addComboProd));
+        }
+
+        [HttpPost("GetActiveCombo")]
+        public ActionResult GetActiveCombo([FromBody] ComboSearchInfo searchPromo)
+        {
+            return Json(iPromoLaunchService.GetComboPromoInfo(searchPromo));
+        }
+
+        [HttpPost("UpdateCombotPromo")]
+        public ActionResult UpdateCombotPromo([FromBody] AddComboPromoInfo updateComboProd)
+        {
+            return Json(iPromoLaunchService.UpdateCombotPromo(updateComboProd));
         }
 
     }

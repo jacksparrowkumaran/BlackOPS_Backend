@@ -8,7 +8,7 @@ namespace BlackOPS.Models.PromoLaunch
     {
         public string ProductCode { get; set; }
 
-        public string CountryCode { get; set; }
+        public string[] CountryCode { get; set; }
 
         public int PricePlanId { get; set; }
     }

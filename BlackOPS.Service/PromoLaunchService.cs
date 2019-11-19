@@ -44,14 +44,28 @@ namespace BlackOPS.Service
             return iPromoLaunchRepository.UpdatePromoInfo(updatePromoInfo);
         }
 
-        public SelectedPromoInfo GetSelectedPromo(int priceSchemeId)
+        public SelectedPromoInfo GetSelectedPromo(ComboSearchInfo searchPromo)
         {
-            return iPromoLaunchRepository.GetSelectedPromo(priceSchemeId);
+            return iPromoLaunchRepository.GetSelectedPromo(searchPromo);
         }
 
-        public APIResponse AddCombotPromo(AddComboProduct updatePromoInfo)
+        public APIResponse AddCombotPromo(AddComboPromoInfo updatePromoInfo)
         {
             return iPromoLaunchRepository.AddCombotPromo(updatePromoInfo);
         }
+
+        public APIResponse ValidatePromoForCombo(AddComboPromoInfo addComboPromoInfo)
+        {
+            return iPromoLaunchRepository.ValidatePromoForCombo(addComboPromoInfo);
+        }
+        public ActiveComborPromo GetComboPromoInfo(ComboSearchInfo searchPromo)
+        {
+            return iPromoLaunchRepository.GetComboPromoInfo(searchPromo);
+        }
+        public APIResponse UpdateCombotPromo(AddComboPromoInfo addComboPromo)
+        {
+            return iPromoLaunchRepository.UpdateCombotPromo(addComboPromo);
+        }
+        
     }
 }

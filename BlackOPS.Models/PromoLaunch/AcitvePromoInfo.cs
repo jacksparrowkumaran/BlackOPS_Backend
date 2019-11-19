@@ -15,5 +15,9 @@ namespace BlackOPS.Models.PromoLaunch
         public decimal PromoPrice { get; set; }
         public string SchemeName { get; set; }
         public bool IsRetail { get; set; }
+        public string CountryName { get; set; }
+        public string CountryCode { get; set; }
+
+        public string PriceSchemeIds { get; set; }
     }
 }

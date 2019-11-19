@@ -10,11 +10,6 @@ namespace BlackOPS.Models.PromoLaunch
 
         public string ProductCode { get; set; }
 
-        public string MainProductCode { get; set; }
-
-
-        public string CountryCode { get; set; }
-
         public decimal IRPrice { get; set; }
 
         public decimal IRPromoPrice { get; set; }

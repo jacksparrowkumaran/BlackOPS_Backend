@@ -8,8 +8,8 @@ namespace BlackOPS.Models.PromoLaunch
     {
         public int CountryId { get; set; }
 
-        public string CountryCode { get; set; }
+        public string display { get; set; }
 
-        public string CountryName { get; set; }
+        public string value { get; set; }
     }
 }

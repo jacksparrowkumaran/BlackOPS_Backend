@@ -16,9 +16,12 @@ namespace BlackOPS.Interface.Promotion.Repositories
 
         APIResponse UpdatePromoInfo(UpdatePromoInfo updatePromoInfo);
 
-        SelectedPromoInfo GetSelectedPromo(int schemeId);
+        SelectedPromoInfo GetSelectedPromo(ComboSearchInfo searchPromo);
 
-        APIResponse AddCombotPromo(AddComboProduct updatePromoInfo);
+        APIResponse AddCombotPromo(AddComboPromoInfo updatePromoInfo);
+        APIResponse ValidatePromoForCombo(AddComboPromoInfo addComboPromoInfo);
+        ActiveComborPromo GetComboPromoInfo(ComboSearchInfo searchPromo);
+        APIResponse UpdateCombotPromo(AddComboPromoInfo addComboPromo);
 
     }
 }

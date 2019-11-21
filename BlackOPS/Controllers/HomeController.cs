@@ -77,7 +77,7 @@ namespace BlackOPS.Controllers
         [HttpPost("ValidateComboPromo")]
         public ActionResult ValidateComboPromo([FromBody] AddComboPromoInfo addComboProd)
         {
-                      return Json(iPromoLaunchService.ValidatePromoForCombo(addComboProd));
+            return Json(iPromoLaunchService.ValidatePromoForCombo(addComboProd));
         }
 
         [HttpPost("AddCombo")]

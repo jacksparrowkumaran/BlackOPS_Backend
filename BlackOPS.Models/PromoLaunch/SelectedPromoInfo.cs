@@ -18,9 +18,9 @@ namespace BlackOPS.Models.PromoLaunch
 
         public decimal RetailPromoPrice { get; set; }
 
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public string EndtDate { get; set; }
+        public DateTime EndtDate { get; set; }
 
         public string OldPromoEndDate { get; set; }
 

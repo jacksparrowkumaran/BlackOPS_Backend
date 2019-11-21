@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
 namespace BlackOPS.Models.PromoLaunch
 {
     public class AddComboPromoInfo
@@ -6,8 +9,12 @@ namespace BlackOPS.Models.PromoLaunch
         public string MainProductCode { get; set; }
         public string PriceSchemeIds { get; set; }
         public int PricePlanId { get; set; }
-        public string[] CountryCode { get; set; }
-        public ComboPriceDetails[] ComboPriceDetails { get; set; }
+        public List<string> CountryCode { get; set; }
+        public string PricePlanType { get; set; }
+        public decimal BV { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public List<ComboPriceDetails> ComboPriceDetails { get; set; }
     }
 
     public class ComboPriceDetails

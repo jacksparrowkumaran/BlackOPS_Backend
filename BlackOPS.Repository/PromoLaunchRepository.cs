@@ -154,36 +154,40 @@ namespace BlackOPS.Repository
             try
             {
                 string query = "dbo.usp_LaunchPromoBasedonProdCode";
-                using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
+                foreach (string country in addNewPromoInfo.CountryCode)
                 {
-                    con.Open();
-                    using (SqlCommand command = new SqlCommand(query, con))
+                    using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@ProdCode", addNewPromoInfo.ProductCode);
-                        // command.Parameters.AddWithValue("@PriceSchemeName", addNewPromoInfo.PriceScheme);
-                        command.Parameters.AddWithValue("@PricePlanID", addNewPromoInfo.PricePlanId);
-                        command.Parameters.AddWithValue("@StartDate", addNewPromoInfo.StartDate);
-                        command.Parameters.AddWithValue("@EndDate", addNewPromoInfo.EndDate);
-                        command.Parameters.AddWithValue("@OldEndDate", addNewPromoInfo.OldPromoDate);
-                        command.Parameters.AddWithValue("@Currency", addNewPromoInfo.Currency);
-                        command.Parameters.AddWithValue("@IRPrice", addNewPromoInfo.IRPromoPrice);
-                        command.Parameters.AddWithValue("@ReIRPrice", addNewPromoInfo.IRRegularPrice);
-                        command.Parameters.AddWithValue("@RetailPrice", addNewPromoInfo.RetailPromoPrice);
-                        command.Parameters.AddWithValue("@ReRetailPrice", addNewPromoInfo.RetailRegularPrice);
-                        command.Parameters.AddWithValue("@CUV", addNewPromoInfo.CUV);
-                        command.Parameters.AddWithValue("@CountryCode", addNewPromoInfo.CountryCode);
-                        command.Parameters.AddWithValue("@ShipFeeSH", addNewPromoInfo.ShipFee);
-                        command.Parameters.AddWithValue("@DSP", addNewPromoInfo.RSP);
-                        command.CommandType = CommandType.StoredProcedure;
-                        SqlDataReader reader = command.ExecuteReader();
-                        if (reader.Read())
+                        con.Open();
+                        using (SqlCommand command = new SqlCommand(query, con))
                         {
-                            aPIResponse.ErrorMessage = Convert.ToString(reader["Error"]);
-                            aPIResponse.IsSuccess = string.IsNullOrEmpty(aPIResponse.ErrorMessage) ? true : false;
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("@ProdCode", addNewPromoInfo.ProductCode);
+                            command.Parameters.AddWithValue("@PricePlanType", addNewPromoInfo.PricePlanType);
+                            command.Parameters.AddWithValue("@PricePlanID", addNewPromoInfo.PricePlanId);
+                            command.Parameters.AddWithValue("@StartDate", addNewPromoInfo.StartDate);
+                            command.Parameters.AddWithValue("@EndDate", addNewPromoInfo.EndDate);
+                            command.Parameters.AddWithValue("@OldEndDate", addNewPromoInfo.OldPromoDate);
+                            command.Parameters.AddWithValue("@Currency", addNewPromoInfo.Currency);
+                            command.Parameters.AddWithValue("@IRPrice", addNewPromoInfo.IRPromoPrice);
+                            command.Parameters.AddWithValue("@ReIRPrice", addNewPromoInfo.IRRegularPrice);
+                            command.Parameters.AddWithValue("@RetailPrice", addNewPromoInfo.RetailPromoPrice);
+                            command.Parameters.AddWithValue("@ReRetailPrice", addNewPromoInfo.RetailRegularPrice);
+                            command.Parameters.AddWithValue("@CUV", addNewPromoInfo.CUV);
+                            command.Parameters.AddWithValue("@CountryCode", country);
+                            command.Parameters.AddWithValue("@ShipFeeSH", addNewPromoInfo.ShipFee);
+                            command.Parameters.AddWithValue("@DSP", addNewPromoInfo.RSP);
+                            command.CommandType = CommandType.StoredProcedure;
+                            SqlDataReader reader = command.ExecuteReader();
+                            if (reader.Read())
+                            {
+                                aPIResponse.ErrorMessage = Convert.ToString(reader["Error"]);
+                                aPIResponse.IsSuccess = string.IsNullOrEmpty(aPIResponse.ErrorMessage) ? true : false;
+                            }
                         }
                     }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -199,34 +203,39 @@ namespace BlackOPS.Repository
             APIResponse aPIResponse = new APIResponse();
             try
             {
-                string query = "dbo.usp_UpdateLaunchPromotion";
-                using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
+                aPIResponse = this.ValidatePromo(updatePromoInfo);
+                if (aPIResponse.IsSuccess)
                 {
-                    con.Open();
-                    using (SqlCommand command = new SqlCommand(query, con))
+                    string query = "dbo.usp_UpdateLaunchPromotion";
+                    using (SqlConnection con = new SqlConnection(this.settings.Value.GQNet))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@PriceSchemeID", updatePromoInfo.PriceSchemeId);
-                        command.Parameters.AddWithValue("@ProdCode", updatePromoInfo.ProductCode);
-                        command.Parameters.AddWithValue("@PricePlanID", updatePromoInfo.PricePlanId);
-                        command.Parameters.AddWithValue("@StartDate", updatePromoInfo.StartDate);
-                        command.Parameters.AddWithValue("@EndDate", updatePromoInfo.EndDate);
-                        command.Parameters.AddWithValue("@OldEndDate", updatePromoInfo.OldPromoDate);
-                        command.Parameters.AddWithValue("@Currency", updatePromoInfo.Currency);
-                        command.Parameters.AddWithValue("@IRPrice", updatePromoInfo.IRPromoPrice);
-                        command.Parameters.AddWithValue("@ReIRPrice", updatePromoInfo.IRRegularPrice);
-                        command.Parameters.AddWithValue("@RetailPrice", updatePromoInfo.RetailPromoPrice);
-                        command.Parameters.AddWithValue("@ReRetailPrice", updatePromoInfo.RetailRegularPrice);
-                        command.Parameters.AddWithValue("@CUV", updatePromoInfo.CUV);
-                        command.Parameters.AddWithValue("@CountryCode", updatePromoInfo.CountryCode);
-                        command.Parameters.AddWithValue("@ShipFeeSH", updatePromoInfo.ShipFee);
-                        command.Parameters.AddWithValue("@DSP", updatePromoInfo.RSP);
+                        con.Open();
+                        using (SqlCommand command = new SqlCommand(query, con))
+                        {
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("@PriceSchemeIds", updatePromoInfo.PriceSchemeId);
+                            command.Parameters.AddWithValue("@ProdCode", updatePromoInfo.ProductCode);
+                            command.Parameters.AddWithValue("@PricePlanID", updatePromoInfo.PricePlanId);
+                            command.Parameters.AddWithValue("@PricePlanType", updatePromoInfo.PricePlanType);
+                            command.Parameters.AddWithValue("@StartDate", updatePromoInfo.StartDate);
+                            command.Parameters.AddWithValue("@EndDate", updatePromoInfo.EndDate);
+                            command.Parameters.AddWithValue("@OldEndDate", updatePromoInfo.OldPromoDate);
+                            command.Parameters.AddWithValue("@Currency", updatePromoInfo.Currency);
+                            command.Parameters.AddWithValue("@IRPrice", updatePromoInfo.IRPromoPrice);
+                            command.Parameters.AddWithValue("@ReIRPrice", updatePromoInfo.IRRegularPrice);
+                            command.Parameters.AddWithValue("@RetailPrice", updatePromoInfo.RetailPromoPrice);
+                            command.Parameters.AddWithValue("@ReRetailPrice", updatePromoInfo.RetailRegularPrice);
+                            command.Parameters.AddWithValue("@CUV", updatePromoInfo.CUV);
+                            command.Parameters.AddWithValue("@CountryCode", updatePromoInfo.CountryCode);
+                            command.Parameters.AddWithValue("@ShipFeeSH", updatePromoInfo.ShipFee);
+                            command.Parameters.AddWithValue("@DSP", updatePromoInfo.RSP);
 
-                        command.ExecuteNonQuery();
-
+                            command.ExecuteNonQuery();
+                        }
                     }
+                    aPIResponse.IsSuccess = true;
                 }
-                aPIResponse.IsSuccess = true;
+
             }
             catch (Exception ex)
             {
@@ -236,6 +245,31 @@ namespace BlackOPS.Repository
 
             return aPIResponse;
 
+        }
+
+        private APIResponse ValidatePromo(UpdatePromoInfo updatePromoInfo)
+        {
+            AddComboPromoInfo comboPrice = new AddComboPromoInfo();
+            comboPrice.CountryCode = new List<string>();
+            comboPrice.CountryCode.Add(updatePromoInfo.CountryCode);
+            comboPrice.MainProductCode = updatePromoInfo.ProductCode;
+            comboPrice.BV = updatePromoInfo.CUV;
+            comboPrice.StartDate = updatePromoInfo.StartDate;
+            comboPrice.EndDate = updatePromoInfo.EndDate;
+            comboPrice.PriceSchemeIds = updatePromoInfo.PriceSchemeId;
+            comboPrice.ComboPriceDetails = new List<ComboPriceDetails>();
+            comboPrice.ComboPriceDetails.Add(new ComboPriceDetails
+            {
+                ProductCode = updatePromoInfo.ProductCode,
+                IRPrice = updatePromoInfo.IRRegularPrice,
+                IRPromoPrice = updatePromoInfo.IRPromoPrice,
+                RetailPrice = updatePromoInfo.RetailRegularPrice,
+                RetailPromoPrice = updatePromoInfo.RetailPromoPrice,
+                PricePlanId = updatePromoInfo.PricePlanId
+            });
+
+            APIResponse aPIResponse = this.ValidatePromoForCombo(comboPrice);
+            return aPIResponse;
         }
 
         public SelectedPromoInfo GetSelectedPromo(ComboSearchInfo searchPromo)
@@ -261,8 +295,8 @@ namespace BlackOPS.Repository
                         selectedPromoInfo.RetailRegularPrice = Convert.ToDecimal(reader["RetailRegularPrice"]);
                         selectedPromoInfo.PromoPrice = Convert.ToDecimal(reader["PromoPrice"]);
                         selectedPromoInfo.RetailPromoPrice = Convert.ToDecimal(reader["RetailPromoPrice"]);
-                        selectedPromoInfo.StartDate = Convert.ToString(reader["StartDate"]);
-                        selectedPromoInfo.EndtDate = Convert.ToString(reader["EndDate"]);
+                        selectedPromoInfo.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                        selectedPromoInfo.EndtDate = Convert.ToDateTime(reader["EndDate"]);
                         selectedPromoInfo.CUV = (Convert.ToInt32(reader["CUV"]) * 1000).ToString();
                         selectedPromoInfo.CountryCode = Convert.ToString(reader["CountryCode"]);
                         selectedPromoInfo.CountryName = Convert.ToString(reader["CountryName"]);
@@ -305,6 +339,7 @@ namespace BlackOPS.Repository
                                 command.Parameters.AddWithValue("@RetailPrice", comboPriceDetails.RetailPromoPrice);
                                 command.Parameters.AddWithValue("@ReRetailPrice", comboPriceDetails.RetailPrice);
                                 command.Parameters.AddWithValue("@CountryCode", country);
+                                command.Parameters.AddWithValue("@PriceSchemeIds", addComboPromo.PriceSchemeIds);
 
                                 SqlDataReader reader = command.ExecuteReader();
                                 if (reader.Read())
@@ -373,6 +408,7 @@ namespace BlackOPS.Repository
             return aPIResponse;
         }
 
+
         public APIResponse ValidatePromoForCombo(AddComboPromoInfo comboPrice)
         {
             APIResponse aPIResponse = new APIResponse();
@@ -392,12 +428,16 @@ namespace BlackOPS.Repository
                                 command.Parameters.AddWithValue("@MainProductCode", comboPrice.MainProductCode);
                                 command.Parameters.AddWithValue("@MainProdPricePlanId", comboPrice.PricePlanId);
                                 command.Parameters.AddWithValue("@ProdCode", comboPriceDetails.ProductCode);
-                                command.Parameters.AddWithValue("@PricePlanID", 16);
+                                command.Parameters.AddWithValue("@PricePlanID", comboPriceDetails.PricePlanId);
                                 command.Parameters.AddWithValue("@IRPrice", comboPriceDetails.IRPromoPrice);
                                 command.Parameters.AddWithValue("@ReIRPrice", comboPriceDetails.IRPrice);
                                 command.Parameters.AddWithValue("@RetailPrice", comboPriceDetails.RetailPromoPrice);
                                 command.Parameters.AddWithValue("@ReRetailPrice", comboPriceDetails.RetailPrice);
                                 command.Parameters.AddWithValue("@CountryCode", country);
+                                command.Parameters.AddWithValue("@BV", comboPrice.BV);
+                                command.Parameters.AddWithValue("@EndDate", comboPrice.StartDate);
+                                command.Parameters.AddWithValue("@StartDate", comboPrice.EndDate);
+                                command.Parameters.AddWithValue("@PriceSchemeIds", comboPrice.PriceSchemeIds);
 
                                 SqlDataReader reader = command.ExecuteReader();
                                 if (reader.Read())
